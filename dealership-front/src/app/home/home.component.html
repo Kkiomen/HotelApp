@@ -1,0 +1,15 @@
+<div class="container" *ngIf="content">
+  <div class="card mb-3" *ngFor="let con of content">
+    <img class="card-img-top" src="assets/image/{{ con.image }}.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{ con.name }}</h5>
+      <p class="card-text">{{ con.address }}</p>
+      <p class="card-text">{{ con.openHours }}</p>
+      <p class="card-text">{{ con.contact }}</p>
+      <button
+        type="button"
+        class="btn btn-dark"
+        [routerLink]="['cars', con.id]">Sprawdz</button>
+    </div>
+  </div>
+</div>

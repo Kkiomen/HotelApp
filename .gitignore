@@ -1,0 +1,3 @@
+# Project exclude paths
+/dealership-front/node_modules/
+/dealership-user-service/target/

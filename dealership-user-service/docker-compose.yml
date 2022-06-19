@@ -1,0 +1,38 @@
+version: '3.1'
+services:
+
+  postgresDb:
+    container_name: dealership_db
+    image: postgres:12-alpine
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=dealership_db
+    ports:
+      - "5432:5432"
+
+  dealership-backend-service:
+    container_name: dealership-backend-service
+    image: dealership/dealership-backend-service:latest
+    build: .
+    restart: always
+    depends_on:
+        - postgresDb
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresDb:5432/dealership_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQL81Dialect
+    ports:
+      - "8080:8080"
+
+  dealership-frontend:
+    container_name: dealership-frontend
+    image: dealership/dealership-front:latest
+    build: .
+    restart: always
+    ports:
+      - "4200:4222"
+
+volumes:
+  pg_data:
