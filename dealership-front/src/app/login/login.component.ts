@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
-import {User} from "../model/user";
+import {Userlogin} from "../model/userlogin";
 
 @Component({
   selector: 'app-login',
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     const { username, password } = this.form;
 
-    let user = new User(username, password)
+    let user = new Userlogin(username, password, "", 0, "");
 
     this.authService.login(user).subscribe({
       next: (data) => {

@@ -4,9 +4,9 @@ import com.github.lukassakwa.dealershipuserservice.account.domain.Account;
 import com.github.lukassakwa.dealershipuserservice.account.domain.Role;
 import com.github.lukassakwa.dealershipuserservice.account.repo.AccountRepository;
 import com.github.lukassakwa.dealershipuserservice.account.repo.RoleRepository;
-import com.github.lukassakwa.dealershipuserservice.exceptions.UserExistException;
+import com.github.lukassakwa.dealershipuserservice.mappers.AccountMapper;
+import com.github.lukassakwa.dealershipuserservice.resources.account.AccountDto;
 import lombok.RequiredArgsConstructor;
-import net.jcip.annotations.Immutable;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,8 +18,8 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -28,6 +28,7 @@ public class AccountService implements IAccountService, UserDetailsService {
 
     private final AccountRepository accountRepository;
     private final RoleRepository roleRepository;
+    private final AccountMapper mapper;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
@@ -72,8 +73,8 @@ public class AccountService implements IAccountService, UserDetailsService {
     }
 
     @Override
-    public List<Account> getAccounts() {
-        return accountRepository.findAll();
+    public List<AccountDto> getAccounts() {
+        return accountRepository.findAll().stream().map(mapper::toDto).collect(Collectors.toList());
     }
 
     @Override

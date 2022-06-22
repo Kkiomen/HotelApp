@@ -13,6 +13,7 @@ public class CarDto {
     private Long id;
     private String brand;
     private String model;
+    private String image;
     private String category;
     private Date productionYear;
     private Integer displacement;

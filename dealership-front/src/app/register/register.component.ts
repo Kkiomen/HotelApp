@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
-import {User} from "../model/user";
+import {Userlogin} from "../model/userlogin";
 
 @Component({
   selector: 'app-register',
@@ -23,8 +23,8 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { email, password } = this.form;
-    const user = new User(email, password);
+    const { email, password, username, phone, position } = this.form;
+    const user = new Userlogin(username, password, email, phone, position);
 
     this.authService.register(user).subscribe(
       data => {

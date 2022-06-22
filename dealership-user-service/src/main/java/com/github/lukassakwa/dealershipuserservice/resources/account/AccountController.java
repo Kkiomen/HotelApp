@@ -29,23 +29,20 @@ public class AccountController {
     }
 
     @GetMapping(path = "/api/users")
-    public ResponseEntity<List<Account>> getUsers() {
+    public ResponseEntity<List<AccountDto>> getUsers() {
         return ResponseEntity.ok().body(accountService.getAccounts());
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_SUPER_ADMIN', 'ROLE_MODERATOR')")
     @PostMapping("/api/user/save")
     public ResponseEntity<Account> saveUser(@RequestBody Account account) {
         return ResponseEntity.ok().body(accountService.saveAccount(account));
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_SUPER_ADMIN', 'ROLE_MODERATOR')")
     @PostMapping("/api/role/save")
     public ResponseEntity<Role> saveRole(@RequestBody Role role) {
         return ResponseEntity.ok().body(accountService.saveRole(role));
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_SUPER_ADMIN', 'ROLE_MODERATOR')")
     @PostMapping("/api/addToUser")
     public ResponseEntity<Void> addRoleToUser(@RequestBody FormDto formDto) {
         accountService.addRoleToUser(formDto.getUsername(), formDto.getRole());

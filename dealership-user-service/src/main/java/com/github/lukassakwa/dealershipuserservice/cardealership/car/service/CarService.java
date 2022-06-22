@@ -24,6 +24,12 @@ public class CarService {
                 .collect(Collectors.toList());
     }
 
+    public List<CarDto> findAllCarsByDealership(Long dealershipId) {
+        return carRepository.findCarsByDealership_Id(dealershipId).stream()
+                .map(mapper::toDto)
+                .collect(Collectors.toList());
+    }
+
     public Car saveCar(Car car) {
         return carRepository.save(car);
     }

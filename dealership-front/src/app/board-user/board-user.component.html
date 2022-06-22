@@ -1,5 +1,26 @@
-<div class="container">
-  <header class="jumbotron">
-    <p>{{ content }}</p>
-  </header>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container" *ngIf="content">
+    <div class="row">
+      <div class="col-md-6 col-xl-3" *ngFor="let con of content;">
+        <div class="card m-b-30">
+          <div class="card-body row">
+            <div class="col-6">
+              <a href=""><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" class="img-fluid rounded-circle w-60"></a>
+            </div>
+            <div class="col-6 card-title align-self-center mb-0">
+              <h5> {{ con.username }} </h5>
+              <p class="m-0">{{ con.position }}</p>
+            </div>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Email : <a href="#">{{ con.email }}</a></li>
+            <li class="list-group-item"><i class="fa fa-phone float-right"></i>Phone : {{ con.phone }}</li>
+          </ul>
+          <div class="card-body">
+            <button type="button" class="btn btn-dark" *ngIf="isAdmin()">delete</button>
+            <button type="button" class="btn btn-dark" *ngIf="isMod()">add role</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>

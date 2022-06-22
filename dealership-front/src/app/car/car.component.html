@@ -1,1 +1,12 @@
-<p>car works!</p>
+<div class="container" *ngIf="dealershipCars">
+  <div class="card mb-3" *ngFor="let dealershipCar of dealershipCars">
+    <img class="card-img-top" src="assets/image/car/{{ dealershipCar.image }}.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{ dealershipCar.brand }}</h5>
+      <p class="card-text">{{ dealershipCar.model }}</p>
+      <p class="card-text">{{ dealershipCar.mileage }}</p>
+      <p class="card-text">{{ dealershipCar.price }}</p>
+    </div>
+  </div>
+</div>
+

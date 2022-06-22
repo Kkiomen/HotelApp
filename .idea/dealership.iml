@@ -6,6 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/dealership-parent/src/main/java" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/dealership-front/dist" />
       <excludeFolder url="file://$MODULE_DIR$/dealership-front/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/httpRequests" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

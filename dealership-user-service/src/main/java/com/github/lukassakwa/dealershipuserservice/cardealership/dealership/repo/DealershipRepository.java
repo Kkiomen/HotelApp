@@ -9,6 +9,8 @@ import java.util.List;
 
 @Repository
 public interface DealershipRepository extends JpaRepository<Dealership, Long> {
-    @Query("SELECT d FROM Dealership d LEFT JOIN FETCH d.cars")
-    List<Dealership> getAllBy();
+    @Query("SELECT c FROM Dealership d INNER JOIN d.cars c")
+    List<Dealership> getAllCars();
+
+
 }

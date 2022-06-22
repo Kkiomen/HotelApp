@@ -21,6 +21,10 @@ public class CarFacade {
         return carService.getAllCars();
     }
 
+    public List<CarDto> getAllByDealership(Long dealershipId) {
+        return carService.findAllCarsByDealership(dealershipId);
+    }
+
     public Car addDealership(Long carId, Long dealershipId) {
         Car car = carService.findById(carId);
         Dealership dealership = dealershipService.findById(dealershipId);

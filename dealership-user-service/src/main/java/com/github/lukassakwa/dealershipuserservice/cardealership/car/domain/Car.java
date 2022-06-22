@@ -18,6 +18,7 @@ public class Car {
     private Long id;
     private String brand;
     private String model;
+    private String image;
     @Enumerated(EnumType.STRING)
     private CarCategory category;
     private Date productionYear;

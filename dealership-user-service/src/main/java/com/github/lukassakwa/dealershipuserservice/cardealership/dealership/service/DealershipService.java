@@ -20,7 +20,7 @@ public class DealershipService {
     private final DealershipMapper mapper;
 
     public List<DealershipDto> getAll() {
-        return repository.getAllBy().stream()
+        return repository.getAllCars().stream()
                 .map(mapper::toDto)
                 .collect(Collectors.toList());
     }
