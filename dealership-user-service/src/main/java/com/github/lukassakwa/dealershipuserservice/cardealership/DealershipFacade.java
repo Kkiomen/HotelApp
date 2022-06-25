@@ -18,7 +18,7 @@ public class DealershipFacade {
     private final DealershipService dealershipService;
 
     public List<DealershipDto> getAll() {
-        return dealershipService.getAll();
+        return dealershipService.getAllDealerships();
     }
 
     public Dealership addCar(Long dealershipId, Long carId) {

@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface CarRepository extends JpaRepository<Car, Long> {
 
-    @Query("SELECT c FROM Car c INNER JOIN FETCH c.dealership")
+    @Query("SELECT c FROM Car c INNER JOIN FETCH c.dealership d WHERE c.id = d.id")
     List<Car> getAllBy();
     
     List<Car> findCarsByDealership_Id(Long id);

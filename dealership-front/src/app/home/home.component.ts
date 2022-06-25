@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.dealershipService.getDealership().subscribe(
       data => {
+        console.log(data);
         this.content = <Dealership[]>JSON.parse(data);
       },
       err => {
