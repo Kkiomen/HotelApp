@@ -21,9 +21,7 @@ export class CarComponent implements OnInit {
     this.id = this.activatedroute.snapshot.paramMap.get("id");
     this.carsService.getDealershipCars(Number(this.id)).subscribe(data => {
       this.dealershipCars = <Car[]>JSON.parse(data);
-      console.log(this.dealershipCars);
     })
-    console.log(this.id);
   }
 
 }

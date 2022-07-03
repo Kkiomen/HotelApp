@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
 import {FullUser, Useraccount} from "../model/useraccount";
 import {TokenStorageService} from "../_services/token-storage.service";
-import {NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {Userlogin} from "../model/userlogin";
+import {NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import {RoleDto} from "../model/role";
 import {UserRoleDto} from "../model/roleUserDto";
 

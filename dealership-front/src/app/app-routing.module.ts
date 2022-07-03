@@ -7,13 +7,17 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { CarComponent } from "./car/car.component";
+import {CarpanelComponent} from "./carpanel/carpanel.component";
+import {DealershippanelComponent} from "./dealership/dealershippanel.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'car', component: CarpanelComponent},
   { path: 'user', component: BoardUserComponent },
+  { path: 'dealership', component: DealershippanelComponent},
   { path: 'home/cars/:id', component: CarComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

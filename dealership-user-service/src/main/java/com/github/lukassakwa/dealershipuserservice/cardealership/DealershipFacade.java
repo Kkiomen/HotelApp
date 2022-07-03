@@ -23,7 +23,7 @@ public class DealershipFacade {
 
     public Dealership addCar(Long dealershipId, Long carId) {
         Dealership dealership = dealershipService.findById(dealershipId);
-        Car car = carService.findById(carId);
+        Car car = carService.findById(carId).orElseThrow(IllegalStateException::new);
 
         dealership.addCar(car);
         return dealershipService.save(dealership);

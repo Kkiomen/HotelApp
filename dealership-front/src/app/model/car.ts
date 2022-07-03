@@ -1,4 +1,6 @@
-class DealershipSmall {
+import {CarDtoSmall} from "./dealership";
+
+export class DealershipSmall {
   public id: number;
   public name: string;
   public image: string;
@@ -35,10 +37,10 @@ export class Car {
   public color: string;
   public VIN: string;
   public price: number;
-  public dealershipSmall: DealershipSmall[]
+  public dealershipSmall: DealershipSmall
 
 
-  constructor(id: number, brand: string, model: string, image: string, category: string, productionYear: string, displacement: number, mileage: number, fuel: string, power: number, carGearbox: string, carBodyType: string, doorsNumber: number, seatsNumber: number, color: string, VIN: string, price: number, dealershipSmall: DealershipSmall[]) {
+  constructor(id: number, brand: string, model: string, image: string, category: string, productionYear: string, displacement: number, mileage: number, fuel: string, power: number, carGearbox: string, carBodyType: string, doorsNumber: number, seatsNumber: number, color: string, VIN: string, price: number, dealershipSmall: DealershipSmall) {
     this.id = id;
     this.brand = brand;
     this.model = model;
@@ -57,5 +59,15 @@ export class Car {
     this.VIN = VIN;
     this.price = price;
     this.dealershipSmall = dealershipSmall;
+  }
+}
+
+export class CarToReceive {
+  public carDtoSmall: CarDtoSmall;
+  public dealership: string;
+
+  constructor(carDtoSmall: CarDtoSmall, dealership: string) {
+    this.carDtoSmall = carDtoSmall;
+    this.dealership = dealership;
   }
 }

@@ -1,4 +1,4 @@
-class CarDtoSmall {
+export class CarDtoSmall {
   public id: number;
   public brand: string;
   public model: string;
@@ -55,5 +55,24 @@ export class Dealership {
     this.openHours = openHours;
     this.contact = contact;
     this.cars = cars;
+  }
+}
+
+export class DealershipToReceive {
+  public id: number;
+  public name: string;
+  public image: string;
+  public address: string;
+  public openHours: string;
+  public contact: string;
+
+
+  constructor(id: number, name: string, image: string, address: string, openHours: string, contact: string) {
+    this.id = id;
+    this.name = name;
+    this.image = image;
+    this.address = address;
+    this.openHours = openHours;
+    this.contact = contact;
   }
 }

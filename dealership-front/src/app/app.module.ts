@@ -15,6 +15,8 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { CarComponent } from './car/car.component';
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {CarpanelComponent} from "./carpanel/carpanel.component";
+import {DealershippanelComponent} from "./dealership/dealershippanel.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     ProfileComponent,
     BoardUserComponent,
-    CarComponent
+    CarComponent,
+    CarpanelComponent,
+    DealershippanelComponent
   ],
   imports: [
     BrowserModule,

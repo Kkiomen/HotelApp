@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface DealershipRepository extends JpaRepository<Dealership, Long> {
@@ -17,4 +18,5 @@ public interface DealershipRepository extends JpaRepository<Dealership, Long> {
     @Query("SELECT d FROM Dealership d")
     List<Dealership> getAllDealerships();
 
+    Optional<Dealership> findDealershipByName(String dealershipName);
 }

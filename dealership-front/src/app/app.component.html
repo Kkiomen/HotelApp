@@ -7,10 +7,13 @@
           <a href="/home" class="nav-link" routerLink="home">Home </a>
         </li>
         <li class="nav-item" *ngIf="showCarBoard">
-          <a href="/car" class="nav-link" *ngIf="isLoggedIn" routerLink="user">Car</a>
+          <a href="/car" class="nav-link" *ngIf="isLoggedIn" routerLink="car">Car</a>
+        </li>
+        <li class="nav-item" *ngIf="showCarBoard">
+          <a href="/dealership" class="nav-link" *ngIf="isLoggedIn" routerLink="dealership">Dealership</a>
         </li>
         <li class="nav-item" *ngIf="showUserBoard">
-          <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">Userlogin</a>
+          <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
         </li>
       </ul>
 

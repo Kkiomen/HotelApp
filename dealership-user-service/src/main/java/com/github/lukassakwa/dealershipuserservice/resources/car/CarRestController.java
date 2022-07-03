@@ -2,11 +2,10 @@ package com.github.lukassakwa.dealershipuserservice.resources.car;
 
 import com.github.lukassakwa.dealershipuserservice.cardealership.CarFacade;
 import com.github.lukassakwa.dealershipuserservice.resources.dto.CarDto;
+import com.github.lukassakwa.dealershipuserservice.resources.dto.CarToReceive;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +23,10 @@ public class CarRestController {
     @GetMapping(path = "/api/cars/{dealershipId}")
     public ResponseEntity<List<CarDto>> getDealershipCars(@PathVariable Long dealershipId) {
         return ResponseEntity.ok().body(carFacade.getAllByDealership(dealershipId));
+    }
+
+    @PostMapping("/api/car/save")
+    public ResponseEntity<CarDto> saveCar(@RequestBody CarToReceive carToReceive) {
+        return ResponseEntity.ok().body(carFacade.saveCarWithDealership(carToReceive.getCarDtoSmall(), carToReceive.getDealership()));
     }
 }
