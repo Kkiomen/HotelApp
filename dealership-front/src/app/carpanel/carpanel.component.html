@@ -1,0 +1,131 @@
+<form>
+  <div class="form-group">
+    <label>Brand</label>
+    <input type="text"
+           class="form-control"
+           name="brand"
+           [(ngModel)]="car.carDtoSmall.brand"
+    >
+  </div>
+  <div class="form-group">
+    <label>model</label>
+    <input type="text"
+           class="form-control"
+           name="model"
+           [(ngModel)]="car.carDtoSmall.model"
+    >
+  </div>
+  <div class="form-group">
+    <label>category</label>
+    <input type="text"
+           class="form-control"
+           name="category"
+           [(ngModel)]="car.carDtoSmall.category"
+    >
+  </div>
+  <div class="form-group">
+    <label>production year</label>
+    <input type="text"
+           class="form-control"
+           name="py"
+           [(ngModel)]="car.carDtoSmall.productionYear"
+    >
+  </div>
+  <div class="form-group">
+    <label>displacement</label>
+    <input type="text"
+           class="form-control"
+           name="dis"
+           [(ngModel)]="car.carDtoSmall.displacement"
+    >
+  </div>
+  <div class="form-group">
+    <label>mileage</label>
+    <input type="text"
+           class="form-control"
+           name="mil"
+           [(ngModel)]="car.carDtoSmall.mileage"
+    >
+  </div>
+  <div class="form-group">
+    <label>fuel</label>
+    <input type="text"
+           class="form-control"
+           name="fuel"
+           [(ngModel)]="car.carDtoSmall.fuel"
+    >
+  </div>
+  <div class="form-group">
+    <label>power</label>
+    <input type="text"
+           class="form-control"
+           name="pow"
+           [(ngModel)]="car.carDtoSmall.power"
+    >
+  </div>
+  <div class="form-group">
+    <label>Car Gearbox</label>
+    <input type="text"
+           class="form-control"
+           name="gear"
+           [(ngModel)]="car.carDtoSmall.carGearbox"
+    >
+  </div>
+  <div class="form-group">
+    <label>body type</label>
+    <input type="text"
+           class="form-control"
+           name="bt"
+           [(ngModel)]="car.carDtoSmall.carBodyType"
+    >
+  </div>
+  <div class="form-group">
+    <label>doors number</label>
+    <input type="text"
+           class="form-control"
+           name="don"
+           [(ngModel)]="car.carDtoSmall.doorsNumber"
+    >
+  </div>
+  <div class="form-group">
+    <label>seats number</label>
+    <input type="text"
+           class="form-control"
+           name="sn"
+           [(ngModel)]="car.carDtoSmall.seatsNumber"
+    >
+  </div>
+  <div class="form-group">
+    <label>color</label>
+    <input type="text"
+           class="form-control"
+           name="color"
+           [(ngModel)]="car.carDtoSmall.color"
+    >
+  </div>
+  <div class="form-group">
+    <label>VIN</label>
+    <input type="text"
+           class="form-control"
+           name="vin"
+           [(ngModel)]="car.carDtoSmall.VIN"
+    >
+  </div>
+  <div class="form-group">
+    <label>price</label>
+    <input type="text"
+           class="form-control"
+           name="price"
+           [(ngModel)]="car.carDtoSmall.price"
+    >
+  </div>
+  <div class="form-group">
+    <label>dealership</label>
+    <input type="text"
+           class="form-control"
+           name="dealrer"
+           [(ngModel)]="car.dealership"
+    >
+  </div>
+  <button type="button" class="btn btn-dark" (click)="addCar()">add car</button>
+</form>
