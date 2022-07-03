@@ -5,6 +5,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.jsonwebtoken.ExpiredJwtException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -29,12 +30,17 @@ public class AppAuthorizationFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
         } else {
             String authorization = request.getHeader(AUTHORIZATION);
-            if(authorization != null && authorization.startsWith("Bearer ")) {
-                try{
+            if (authorization != null && authorization.startsWith("Bearer ")) {
+                try {
                     String token = authorization.substring("Bearer ".length());
                     Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
                     JWTVerifier jwtVerifier = JWT.require(algorithm).build();
                     DecodedJWT decodedJWT = jwtVerifier.verify(token);
+
+                    if(decodedJWT.getExpiresAt().before(new Date())) {
+
+                    }
+
                     String username = decodedJWT.getSubject();
                     String[] roles = decodedJWT.getClaim("roles").asArray(String.class);
                     Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
@@ -43,8 +49,8 @@ public class AppAuthorizationFilter extends OncePerRequestFilter {
                             new UsernamePasswordAuthenticationToken(username, null, authorities);
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                     filterChain.doFilter(request, response);
-                }catch (Exception e){
-                    log.error("Error logging in: {}" , e.getMessage());
+                } catch (ExpiredJwtException e) {
+                    log.error("Error logging in: {}", e.getMessage());
                     response.setHeader("error", e.getMessage());
                     response.setStatus(HttpServletResponse.SC_FORBIDDEN);
                     Map<String, String> error = new HashMap<>();
