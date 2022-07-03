@@ -12,4 +12,5 @@ public interface IAccountService {
     List<AccountDto> getAccounts();
     void addRoleToUser(String username, String name);
     Account getUser(String username);
+    void removeUserRole(String username, String name);
 }

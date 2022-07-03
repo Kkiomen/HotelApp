@@ -1,21 +1,138 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container" *ngIf="content">
-  <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Open My Modal</button>
-
-  <ng-template #mymodal let-modal>
+  <ng-template #con let-modal id="modal-add-user">
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">×</span>
-      </button>
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
-      This is example from ItSolutionStuff.com
+      <form>
+        <div class="mb-3">
+            <div class="form-group">
+              <div class="form-group">
+                <label >username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="text"
+                  [(ngModel)]="userAccount.username"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                minlength="6"
+                [(ngModel)]="userAccount.password"
+              />
+            </div>
+            <div class="form-group">
+              <label>email</label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                email
+                [(ngModel)]="userAccount.email"
+              />
+            </div>
+          <div class="form-group">
+            <label>role</label>
+            <input
+              type="text"
+              class="form-control"
+              name="role"
+              [(ngModel)]="userAccount.role[0].name"
+            />
+          </div>
+            <div class="form-group">
+              <label>phone</label>
+              <input
+                type="tel"
+                class="form-control"
+                name="tel"
+                [(ngModel)]="userAccount.phone"
+              />
+            </div>
+            <div class="form-group">
+              <label>position</label>
+              <input
+                type="text"
+                class="form-control"
+                name="text"
+                [(ngModel)]="userAccount.position"
+              />
+            </div>
+        </div>
+      </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+      <button type="submit" class="btn btn-outline-dark" (click)="addUser()">Save</button>
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close()">close</button>
     </div>
   </ng-template>
+
+  <ng-template #con2 let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Profile update</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label>username</label>
+          <input
+            type="text"
+            class="form-control"
+            name="role"
+            [(ngModel)]="userAccount.username"
+          />
+        </div>
+        <div class="form-group">
+          <label>role</label>
+          <input
+            type="text"
+            class="form-control"
+            name="role"
+            [(ngModel)]="userAccount.role[0].name"
+          />
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-outline-dark" (click)="addUserRole()">Save</button>
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Close</button>
+    </div>
+  </ng-template>
+
+  <ng-template #con3 let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Profile update</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label>username</label>
+          <input
+            type="text"
+            class="form-control"
+            name="role"
+            [(ngModel)]="userAccount.username"
+          />
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-outline-dark" (click)="deleteUser()">Save</button>
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Close</button>
+    </div>
+  </ng-template>
+
+  <button *ngIf="isAdmin()" class="btn btn-dark" (click)="open(con)">Add User</button>
 
     <div class="row">
       <div class="col-md-6 col-xl-3" *ngFor="let con of content;">
@@ -34,8 +151,8 @@
             <li class="list-group-item"><i class="fa fa-phone float-right"></i>Phone : {{ con.phone }}</li>
           </ul>
           <div class="card-body">
-            <button type="button" class="btn btn-dark" *ngIf="isAdmin()">delete</button>
-            <button type="button" class="btn btn-dark" *ngIf="isMod()">add role</button>
+            <button *ngIf="isMod()" type="button" class="btn btn-dark" (click)="open(con2)">add role</button>
+            <button  *ngIf="isAdmin()" type="button" class="btn btn-dark" (click)="open(con3)">delete</button>
           </div>
         </div>
       </div>

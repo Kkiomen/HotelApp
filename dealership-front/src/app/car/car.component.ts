@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {CarsService} from "../_services/cars.service";
 import {Car} from "../model/car";
-import {Dealership} from "../model/dealership";
 
 @Component({
   selector: 'app-car',

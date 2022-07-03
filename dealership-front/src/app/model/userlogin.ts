@@ -1,10 +1,11 @@
+import {RoleDto} from "./role";
+
 export class Userlogin {
   public username: string;
   public password: string;
   public email: string;
   public phone: number;
   public position: string;
-
 
   constructor(username: string, password: string, email: string, phone: number, position: string) {
     this.username = username;

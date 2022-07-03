@@ -44,6 +44,8 @@ public class Account {
         if(this.role.isEmpty()) {
             this.role = new ArrayList<>();
         }
-        this.role.add(role);
+        if(!this.role.contains(role)){
+            this.role.add(role);
+        }
     }
 }

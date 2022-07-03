@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 import {Userlogin} from "../model/userlogin";
+import {RoleDto} from "../model/role";
 
 @Component({
   selector: 'app-login',
@@ -43,13 +44,9 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         this.username = this.tokenStorage.getUser().sub;
-        console.log(this.tokenStorage.getToken());
-        console.log(data);
-        console.log(this.tokenStorage.getToken());
         this.reloadPage();
       },
       error: (err) => {
-        console.log(err);
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
       }
