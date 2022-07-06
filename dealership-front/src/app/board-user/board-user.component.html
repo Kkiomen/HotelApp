@@ -132,7 +132,7 @@
     </div>
   </ng-template>
 
-  <button *ngIf="isAdmin()" class="btn btn-dark" (click)="open(con)">Add User</button>
+  <button *ngIf="isMod()" class="btn btn-dark" (click)="open(con)">Add User</button>
 
     <div class="row">
       <div class="col-md-6 col-xl-3" *ngFor="let con of content;">
@@ -152,7 +152,7 @@
           </ul>
           <div class="card-body">
             <button *ngIf="isMod()" type="button" class="btn btn-dark" (click)="open(con2)">add role</button>
-            <button  *ngIf="isAdmin()" type="button" class="btn btn-dark" (click)="open(con3)">delete</button>
+            <button  *ngIf="isMod()" type="button" class="btn btn-dark" (click)="open(con3)">delete</button>
           </div>
         </div>
       </div>

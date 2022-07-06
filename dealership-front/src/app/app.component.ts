@@ -29,8 +29,7 @@ export class AppComponent implements OnInit {
         this.roles.includes('ROLE_MODERATOR');
       this.showCarBoard =
         this.roles.includes('ROLE_SUPER_ADMIN') ||
-        this.roles.includes('ROLE_ADMIN') ||
-        this.roles.includes('ROLE_MODERATOR');
+        this.roles.includes('ROLE_ADMIN');
 
       this.username = user.sub;
     }
