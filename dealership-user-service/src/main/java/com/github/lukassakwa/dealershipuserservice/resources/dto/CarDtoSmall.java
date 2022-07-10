@@ -14,6 +14,7 @@ public class CarDtoSmall {
     private String brand;
     private String model;
     private String category;
+    private String image;
     private Date productionYear;
     private Integer displacement;
     private Long mileage;

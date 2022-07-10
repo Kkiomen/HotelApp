@@ -10,7 +10,7 @@ import {Car, CarToReceive, DealershipSmall} from "../model/car";
   styleUrls: ['./carpanel.component.css']
 })
 export class CarpanelComponent implements OnInit {
-  car: CarToReceive = new CarToReceive(new CarDtoSmall(0, '', '', '', '', 0,
+  car: CarToReceive = new CarToReceive(new CarDtoSmall(0, '', '', '',   'superb', '', 0,
     0, '', 0, '', '', 0,
     0, '', '', 0), '');
 

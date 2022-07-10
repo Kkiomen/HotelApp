@@ -31,7 +31,7 @@ public class DealershipUserServiceApplication {
 
     @Bean
     CommandLineRunner commandLineRunner(AccountService accountService, CarFacade carFacade, DealershipFacade dealershipFacade){
-        return args -> {
+        return args  -> {
             accountService.saveRole(new Role("ROLE_USER"));
             accountService.saveRole(new Role("ROLE_ADMIN"));
             accountService.saveRole(new Role("ROLE_MODERATOR"));

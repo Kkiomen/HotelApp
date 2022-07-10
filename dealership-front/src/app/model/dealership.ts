@@ -3,6 +3,7 @@ export class CarDtoSmall {
   public brand: string;
   public model: string;
   public category: string;
+  public image: string;
   public productionYear: string;
   public displacement: number;
   public mileage: number;
@@ -17,11 +18,12 @@ export class CarDtoSmall {
   public price: number;
 
 
-  constructor(id: number, brand: string, model: string, category: string, productionYear: string, displacement: number, mileage: number, fuel: string, power: number, carGearbox: string, carBodyType: string, doorsNumber: number, seatsNumber: number, color: string, VIN: string, price: number) {
+  constructor(id: number, brand: string, model: string, category: string, image: string, productionYear: string, displacement: number, mileage: number, fuel: string, power: number, carGearbox: string, carBodyType: string, doorsNumber: number, seatsNumber: number, color: string, VIN: string, price: number) {
     this.id = id;
     this.brand = brand;
     this.model = model;
     this.category = category;
+    this.image = image;
     this.productionYear = productionYear;
     this.displacement = displacement;
     this.mileage = mileage;

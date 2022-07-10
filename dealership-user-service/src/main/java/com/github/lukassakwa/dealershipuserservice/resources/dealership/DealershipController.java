@@ -25,25 +25,9 @@ public class DealershipController {
         return ResponseEntity.ok().body(dealershipFacade.getAll());
     }
 
-    @PostMapping("/{dealershipId}/add")
-    ResponseEntity<DealershipDto> saveDealership(@PathVariable String dealershipId){
-        return ResponseEntity.ok().build();
-    }
-
-    @PutMapping("/{dealershipId}/edit")
-    ResponseEntity<DealershipDto> editDealership(@PathVariable String dealershipId){
-        return ResponseEntity.ok().build();
-    }
-
     @PostMapping("/save")
     ResponseEntity<Dealership> saveDealership(@RequestBody DealershipToReceive dealershipToReceive){
         return ResponseEntity.ok().body(dealershipFacade.save(dealershipMapper.toEntity(dealershipToReceive)));
     }
-
-    @DeleteMapping("/{dealershipId}/delete")
-    ResponseEntity<Void> deleteDealership(@PathVariable String dealershipId){
-        return ResponseEntity.ok().build();
-    }
-
 
 }
